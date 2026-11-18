@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-royal: #0e2579;
+  --color-royal-soft: #1b3593;
+  --color-cobalt: #1f4ef5;
+  --color-cobalt-deep: #1740cc;
+  --color-cobalt-tint: #eaf0ff;
+  --color-volt: #d6f23b;
+
+  --color-ink: #0f1b33;
+  --color-ink-soft: #3a4963;
+  --color-muted: #5a6985;
+  --color-line: #e1e6ee;
+  --color-paper: #f3f5f9;
+
+  --color-ok: #14744b;
+  --color-ok-tint: #e2f4eb;
+  --color-warn: #8f5a00;
+  --color-warn-tint: #fff1d1;
+  --color-bad: #bf2e1b;
+  --color-bad-tint: #fde7e3;
+
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-sans: "Public Sans Variable", system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cobalt);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex h-10 cursor-pointer items-center justify-center gap-2 rounded-lg px-4 text-[15px] font-semibold whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-cobalt text-white hover:bg-cobalt-deep;
+  }
+  .btn-quiet {
+    @apply border border-line bg-white text-ink hover:bg-paper;
+  }
+  .input {
+    @apply h-10 w-full rounded-lg border border-line bg-white px-3 text-[15px] text-ink placeholder:text-muted/70;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink-soft;
+  }
+  .panel {
+    @apply rounded-xl border border-line bg-white;
+  }
+}
